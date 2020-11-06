@@ -19,6 +19,11 @@ cc_defaults {
         "-DGL_GLEXT_PROTOTYPES",
         "-DEGL_EGLEXT_PROTOTYPES",
     ],
+    product_variables: {
+        disable_postrender_cleanup: {
+            cflags: ["-DDISABLE_POSTRENDER_CLEANUP"],
+        },
+    },
     shared_libs: [
         "android.frameworks.vr.composer@2.0",
         "android.hardware.configstore-utils",
