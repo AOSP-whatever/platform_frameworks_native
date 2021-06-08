@@ -48,10 +48,8 @@ uint64_t getValid10UsageBits() {
         for (const auto bit : hardware::hidl_enum_range<BufferUsage>()) {
             bits = bits | bit;
         }
-<<<<<<< HEAD
         // TODO(b/72323293, b/72703005): Remove these invalid bits from callers
         bits = bits | ((1 << 10) | (1 << 13) | (1 << 21) | (1 << 27));
-=======
 
 #ifdef ADDNL_GRALLOC_10_USAGE_BITS
         uint64_t addnl_bits = static_cast<uint64_t>(ADDNL_GRALLOC_10_USAGE_BITS);
@@ -59,7 +57,6 @@ uint64_t getValid10UsageBits() {
         bits = bits | addnl_bits;
 #endif
 
->>>>>>> d0b5b2231... libui: Allow extension of valid gralloc 1.0 buffer usage bits
         return bits;
     }();
     return valid10UsageBits;
